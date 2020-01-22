@@ -5,6 +5,8 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.core.Request
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,6 +20,15 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+
+            Fuel.get("https://httpbin.org/get")
+                .response { request, response, result ->
+                    println(request)
+                    println(response)
+                    val (bytes, error) = result
+                    if (bytes != null) {
+                    }
+                  }
         }
     }
 
@@ -36,4 +47,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+    
 }
