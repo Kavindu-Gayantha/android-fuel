@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         buttonClickMe.setOnClickListener{
-            Fuel.get("https://jsonplaceholder.typicode.com/posts")
-                .response { request, response, result ->
+              Fuel.get("https://jsonplaceholder.typicode.com/posts")
+                  .response { request, response, result ->
 //                    println(request)
                     println(response)
                     val (bytes, error) = result
