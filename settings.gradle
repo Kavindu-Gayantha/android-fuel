@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name='myapp_with fuel'
