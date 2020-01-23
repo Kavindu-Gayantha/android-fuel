@@ -14,22 +14,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+//        setContentView(R.layout.activity_main)
+//        setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
 
-            Fuel.get("https://httpbin.org/get")
-                .response { request, response, result ->
-                    println(request)
-                    println(response)
-                    val (bytes, error) = result
-                    if (bytes != null) {
-                    }
-                  }
         }
+
+        Fuel.get("https://httpbin.org/get")
+            .response { request, response, result ->
+                println(request)
+                println(response)
+                val (bytes, error) = result
+                if (bytes != null) {
+                }
+            }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -47,5 +48,6 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    
+
+
 }
